@@ -3,192 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oasis Marketing Agency | Digital Growth, Desert Clarity</title>
+    <title>Everything Oasis | Full-Service Marketing Agency</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* BRAND COLORS */
         :root {
-            --deep-teal: #0d2a2d;
-            --oasis-green: #1a4d4e;
-            --desert-gold: #e2b05f;
-            --sand-white: #f4f1ea;
-            --text-gray: #a0adaa;
+            --deep-teal: #0a1f21;
+            --oasis-accent: #143d3f;
+            --desert-gold: #d4a356;
+            --soft-gold: #e2b05f;
+            --sand-white: #fdfbf7;
+            --muted-text: #8ea1a3;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--deep-teal); color: var(--sand-white); line-height: 1.6; }
 
-        body {
-            background-color: var(--deep-teal);
-            color: var(--sand-white);
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
+        /* NAV */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 10%;
-            background: rgba(13, 42, 45, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 8%; background: rgba(10, 31, 33, 0.95);
+            backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(212, 163, 86, 0.1);
         }
+        .logo { font-size: 1.2rem; font-weight: 800; color: var(--desert-gold); text-transform: uppercase; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--sand-white); font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--desert-gold); }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--desert-gold);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--sand-white);
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--desert-gold);
-        }
-
-        /* HERO SECTION */
+        /* HERO */
         .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 10%;
-            background: linear-gradient(to right, rgba(13, 42, 45, 0.9), rgba(13, 42, 45, 0.2)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072') center/cover;
+            height: 80vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 0 10%;
+            background: radial-gradient(circle at center, rgba(20, 61, 63, 0.4) 0%, rgba(10, 31, 33, 1) 100%);
+        }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+        .hero h1 span { color: var(--desert-gold); }
+        .hero p { font-size: 1.1rem; max-width: 600px; color: var(--muted-text); margin-bottom: 35px; }
+
+        /* SECTION STYLING */
+        section { padding: 80px 10%; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--sand-white); }
+        .section-header p { color: var(--desert-gold); text-transform: uppercase; font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* SERVICES GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px; border-radius: 15px; border: 1px solid rgba(212, 163, 86, 0.1); transition: 0.4s;
+        }
+        .service-card:hover { border-color: var(--desert-gold); background: rgba(212, 163, 86, 0.05); transform: translateY(-5px); }
+        .service-card i { color: var(--desert-gold); font-size: 2rem; margin-bottom: 20px; }
+
+        /* WORK PORTFOLIO */
+        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .work-card {
+            border-radius: 20px; background: var(--oasis-accent); 
+            border: 1px solid rgba(212, 163, 86, 0.1); overflow: hidden; transition: 0.4s;
+        }
+        .work-img { height: 260px; width: 100%; background-size: cover; background-position: center; filter: brightness(0.6); transition: 0.5s; }
+        .work-card:hover .work-img { filter: brightness(1); transform: scale(1.03); }
+        .work-content { padding: 30px; }
+        .work-tag { color: var(--desert-gold); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; display: block;}
+        .work-card h3 { font-size: 1.6rem; margin-bottom: 12px; }
+        .work-stat { 
+            display: inline-block; margin-top: 15px; padding: 8px 16px; 
+            background: rgba(212, 163, 86, 0.15); border: 1px solid var(--desert-gold); 
+            border-radius: 8px; color: var(--desert-gold); font-weight: 800;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            max-width: 700px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
+        /* BUTTONS */
+        .btn { padding: 16px 35px; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-gold { background-color: var(--desert-gold); color: var(--deep-teal); }
+        .btn-gold:hover { background-color: var(--soft-gold); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 163, 86, 0.2); }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-        }
+        /* CONTACT */
+        .contact-container { max-width: 700px; margin: 0 auto; text-align: center; }
+        form { display: grid; gap: 15px; margin-top: 30px; text-align: left; }
+        input, textarea { padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(212, 163, 86, 0.2); color: white; border-radius: 8px; width: 100%; }
 
-        .btn {
-            padding: 15px 35px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s;
-            border-radius: 4px;
-        }
-
-        .btn-primary {
-            background-color: var(--desert-gold);
-            color: var(--deep-teal);
-        }
-
-        .btn-primary:hover {
-            background-color: #f5c47a;
-            transform: translateY(-3px);
-        }
-
-        /* SERVICES SECTION */
-        .services {
-            padding: 100px 10%;
-            background-color: var(--oasis-green);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--desert-gold);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--deep-teal);
-            padding: 40px;
-            border-radius: 8px;
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
-        }
-
-        .card:hover {
-            border-bottom: 4px solid var(--desert-gold);
-            transform: translateY(-10px);
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            color: var(--desert-gold);
-            margin-bottom: 20px;
-        }
-
-        /* CONTACT FORM */
-        .contact {
-            padding: 100px 10%;
-            text-align: center;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        input, textarea {
-            padding: 15px;
-            background: #153a3d;
-            border: 1px solid #2a5a5d;
-            color: white;
-            border-radius: 4px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
+        footer { padding: 40px; text-align: center; color: var(--muted-text); font-size: 0.7rem; border-top: 1px solid rgba(212, 163, 86, 0.1); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">
-            <i class="fas fa-water"></i> OASIS
-        </div>
+        <div class="logo">Everything Oasis</div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -198,51 +98,80 @@
     </nav>
 
     <section class="hero" id="home">
-        <h1>Digital Growth.<br>Desert Clarity.</h1>
-        <p>We cut through the noise of the modern marketplace to find your brand’s true north. Strategy meets flawless execution.</p>
-        <div>
-            <a href="#contact" class="btn btn-primary">Book a Strategy Audit</a>
+        <h1>Everything Brand.<br><span>Everything Oasis.</span></h1>
+        <p>Expert strategy meets creative execution. We turn ambition into market-leading reality.</p>
+        <a href="#contact" class="btn btn-gold">Book a Strategy Audit</a>
+    </section>
+
+    <section id="services">
+        <div class="section-header">
+            <p>Our Core Offerings</p>
+            <h2>Agency Capabilities</h2>
+        </div>
+        <div class="grid">
+            <div class="service-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Hybrid E-Commerce</h3>
+                <p>Scaling digital storefronts (eBay, Shopify) while dominating local physical markets.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Local Lead Gen</h3>
+                <p>Connecting service businesses with high-intent clients in their immediate area.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Growth Strategy</h3>
+                <p>Data-backed systems designed to take businesses from zero to scale.</p>
+            </div>
         </div>
     </section>
 
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>The Oasis Method</h2>
-            <p>Execution-focused solutions for a crowded digital landscape.</p>
+    <section id="work" style="background-color: rgba(0,0,0,0.15);">
+        <div class="section-header">
+            <p>The Evidence</p>
+            <h2>Success Stories</h2>
         </div>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-bullhorn"></i>
-                <h3>Brand Identity</h3>
-                <p>Finding your unique voice in the wilderness and building a narrative that lasts.</p>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-img" style="background-image: url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="work-content">
+                    <span class="work-tag">Hybrid Retail / eBay Store</span>
+                    <h3>Everything Oasis Store</h3>
+                    <p>Optimized eBay inventory management and local sales funnels to build a revenue engine from the ground up.</p>
+                    <div class="work-stat">$0 to $2k Monthly Sales in 6 Months</div>
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Performance Marketing</h3>
-                <p>Data-driven paid media campaigns that convert window shoppers into loyalists.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-pen-nib"></i>
-                <h3>Content Strategy</h3>
-                <p>Storytelling that builds community and drives organic, sustainable growth.</p>
+            <div class="work-card">
+                <div class="work-img" style="background-image: url('https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="work-content">
+                    <span class="work-tag">Local Service Marketing</span>
+                    <h3>Crimson Landscaping</h3>
+                    <p>Implemented aggressive local SEO and high-conversion landing pages to dominate the regional market.</p>
+                    <div class="work-stat 0-to-30">0 to 30 Clients in Record Time</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2>Ready to reach the Oasis?</h2>
-        <p>Let's discuss your next growth phase.</p>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea rows="5" placeholder="What is your biggest growth hurdle?"></textarea>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
+        <div class="contact-container">
+            <div class="section-header">
+                <p>The Next Step</p>
+                <h2>Secure Your Audit</h2>
+            </div>
+            <form action="https://formspree.io/f/mnngavnq" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Work Email" required>
+                <textarea name="message" rows="5" placeholder="Tell us about your growth goals..." required></textarea>
+                <button type="submit" class="btn btn-gold">Submit Request</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Oasis Marketing Agency. All Rights Reserved.</p>
+        <p>&copy; 2025 EVERYTHING OASIS. ALL RIGHTS RESERVED.</p>
     </footer>
 
 </body>
-</html>    
+</html>
