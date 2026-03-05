@@ -1,169 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everything Oasis | Small Business Growth Agency</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --deep-teal: #0a1f21;
-            --oasis-accent: #143d3f;
-            --desert-gold: #d4a356;
-            --soft-gold: #e2b05f;
-            --sand-white: #fdfbf7;
-            --muted-text: #8ea1a3;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Helping Hands – Services for Seniors</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--deep-teal); color: var(--sand-white); line-height: 1.6; overflow-x: hidden; }
+    :root {
+      --green: #4a7c59;
+      --green-light: #e8f5ec;
+      --green-dark: #2e5c3a;
+      --gold: #d4a843;
+      --text: #2c2c2c;
+      --gray: #f7f7f7;
+      --white: #ffffff;
+    }
 
-        /* NAV */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 8%; background: rgba(10, 31, 33, 0.9);
-            backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(212, 163, 86, 0.1);
-        }
-        .logo { font-size: 1.3rem; font-weight: 800; color: var(--desert-gold); text-transform: uppercase; letter-spacing: 2px; }
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { text-decoration: none; color: var(--sand-white); font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
-        nav a:hover { color: var(--desert-gold); }
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.7;
+    }
 
-        /* HERO */
-        .hero {
-            height: 85vh; display: flex; flex-direction: column; justify-content: center;
-            align-items: center; text-align: center; padding: 0 10%; position: relative;
-            background: radial-gradient(circle at center, rgba(20, 61, 63, 0.6) 0%, rgba(10, 31, 33, 1) 100%);
-        }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 900; }
-        .hero h1 span { color: var(--desert-gold); }
-        .hero p { font-size: 1.25rem; max-width: 750px; color: var(--muted-text); margin-bottom: 40px; font-weight: 500; }
+    a { text-decoration: none; color: inherit; }
 
-        .btn { padding: 18px 45px; border-radius: 50px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.4s ease; }
-        .btn-gold { background-color: var(--desert-gold); color: var(--deep-teal); }
-        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(212, 163, 86, 0.3); }
+    /* NAV */
+    nav {
+      background: var(--green-dark);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-        /* CASE STUDIES SECTION */
-        section { padding: 80px 8%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.8rem; margin-bottom: 10px; }
-        .section-header p { color: var(--desert-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; }
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .work-card {
-            border-radius: 20px; background: var(--oasis-accent); 
-            border: 1px solid rgba(212, 163, 86, 0.1); overflow: hidden; position: relative;
-            transition: 0.4s; height: 100%;
-        }
-        .work-img-container { position: relative; overflow: hidden; height: 240px; }
-        .work-img { 
-            height: 100%; width: 100%; background-size: cover; background-position: center; 
-            transition: 0.8s ease; filter: brightness(0.6); 
-        }
-        .work-card:hover .work-img { filter: brightness(0.9); transform: scale(1.05); }
-        
-        .work-content { padding: 30px; }
-        .work-tag { color: var(--desert-gold); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .work-stat { 
-            display: inline-block; margin-top: 20px; padding: 8px 16px; 
-            background: linear-gradient(135deg, var(--desert-gold), var(--soft-gold));
-            border-radius: 10px; color: var(--deep-teal); font-weight: 900; font-size: 0.9rem;
-        }
+    .logo span { color: var(--gold); }
 
-        /* CONTACT FORM */
-        .contact-box { background: rgba(255,255,255,0.02); padding: 50px; border-radius: 30px; border: 1px solid rgba(212,163,86,0.1); max-width: 800px; margin: 0 auto; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(0,0,0,0.2); border: 1px solid rgba(212,163,86,0.1); border-radius: 10px; color: white; }
+    .nav-links a {
+      color: white;
+      margin-left: 28px;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
 
-        footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; }
-    </style>
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 36px;
+      opacity: 0.92;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover { background: #b8892e; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 14px;
+    }
+
+    .btn-outline:hover { background: white; color: var(--green-dark); }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--gold);
+      color: white;
+      text-align: center;
+      padding: 16px 40px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    /* SECTION SHARED */
+    section { padding: 80px 40px; }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      font-size: 1.05rem;
+    }
+
+    /* SERVICES */
+    #services { background: var(--gray); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+
+    .card p { color: #555; font-size: 0.97rem; }
+
+    /* PRICING */
+    #pricing { background: var(--white); }
+
+    .pricing-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--green-light);
+      border-radius: 20px;
+      padding: 50px 50px;
+      text-align: center;
+      border: 2px solid var(--green);
+    }
+
+    .price-big {
+      font-size: 4rem;
+      color: var(--green-dark);
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .price-big span { font-size: 1.5rem; vertical-align: super; }
+
+    .price-label {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .price-list {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+      margin: 24px 0;
+    }
+
+    .price-list li {
+      padding: 8px 0;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .price-list li::before {
+      content: "✅ ";
+    }
+
+    /* WHY */
+    #why { background: var(--gray); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .why-item { padding: 20px; }
+    .why-item .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .why-item h4 { color: var(--green-dark); font-size: 1.2rem; margin-bottom: 8px; }
+    .why-item p { color: #555; font-size: 0.95rem; }
+
+    /* TESTIMONIALS */
+    #testimonials { background: var(--green-dark); color: white; }
+
+    #testimonials .section-title { color: var(--gold); }
+    #testimonials .section-sub { color: rgba(255,255,255,0.75); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 30px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .testimonial p { font-style: italic; margin-bottom: 16px; opacity: 0.9; }
+    .testimonial strong { color: var(--gold); }
+
+    /* CONTACT */
+    #contact { background: var(--white); }
+
+    .contact-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-wrap p { font-size: 1.1rem; color: #555; margin-bottom: 30px; }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 1.1rem;
+    }
+
+    .contact-row .ci { font-size: 1.5rem; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px 18px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border 0.2s;
+      width: 100%;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+
+    .contact-form textarea { height: 130px; resize: vertical; }
+
+    .contact-form .btn { width: 100%; font-size: 1.1rem; }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2rem; }
+      nav { flex-direction: column; gap: 12px; }
+      .nav-links a { margin-left: 14px; font-size: 0.9rem; }
+      section { padding: 60px 20px; }
+      .pricing-box { padding: 36px 24px; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Everything Oasis</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#work">Proof</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Helping <span>Hands</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#why">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <section class="hero" id="home">
-        <div data-aos="zoom-out" data-aos-duration="1500">
-            <h1>Everything Brand.<br><span>Everything Oasis.</span></h1>
-            <p>We help small businesses build empires from scratch—transforming zero presence into thriving communities of 1,000+ followers and consistent revenue.</p>
-            <a href="#contact" class="btn btn-gold">Grow My Business</a>
-        </div>
-    </section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Your Trusted Helper,<br><span>Here For You</span></h1>
+    <p>Friendly, patient, and reliable help for seniors — from yard work and tech support to being that helpful young person in your life.</p>
+    <a href="#contact" class="btn">Book a Session</a>
+    <a href="#services" class="btn btn-outline">See Services</a>
+  </section>
 
-    <section id="work">
-        <div class="section-header" data-aos="fade-up">
-            <p>The Evidence</p>
-            <h2>Proven Growth</h2>
-        </div>
-        <div class="work-grid">
-            
-            <div class="work-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="work-img-container">
-                    <div class="work-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800');"></div>
-                </div>
-                <div class="work-content">
-                    <span class="work-tag">Hybrid Retail / E-Commerce</span>
-                    <h3>Everything Oasis Store</h3>
-                    <p>Scaling a brand from the ground up through strategic inventory management and multi-channel sales.</p>
-                    <div class="work-stat">$0 to $2k Monthly Sales in 6 Months</div>
-                </div>
-            </div>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    ⭐ Friendly &nbsp;|&nbsp; Patient &nbsp;|&nbsp; Trustworthy &nbsp;|&nbsp; Affordable Hourly Rates &nbsp;|&nbsp; No Task Too Small
+  </div>
 
-            <div class="work-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="work-img-container">
-                    <div class="work-img" style="background-image: url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=800');"></div>
-                </div>
-                <div class="work-content">
-                    <span class="work-tag">Social Media Domination</span>
-                    <h3>Viral Content Engine</h3>
-                    <p>Leveraging high-retention short-form video to build a verified community from absolute zero.</p>
-                    <div class="work-stat">0 to 1,000+ Followers in 30 Days</div>
-                </div>
-            </div>
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="section-title">How I Can Help You</h2>
+    <p class="section-sub">I offer a wide range of services so you have one reliable person to call — no matter what you need.</p>
+    <div class="services-grid">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Phone & Tablet Help</h3>
+        <p>Learn how to use your smartphone, make video calls, send texts, set up apps, and more — at your own pace.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>Computer & Laptop Help</h3>
+        <p>Email, browsing, video calls, printing, security — I'll walk you through it all patiently and clearly.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Website Design</h3>
+        <p>Need a simple website for your small business or organization? I'll build something clean and easy to use.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Yard Work</h3>
+        <p>Mowing, weeding, raking, trimming, and general outdoor cleanup to keep your home looking its best.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>Errands & Shopping</h3>
+        <p>Grocery runs, pickups, drop-offs, or anything else on your to-do list that you'd like a hand with.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3>Odd Jobs & Around the House</h3>
+        <p>Light bulbs, furniture assembly, organizing, moving boxes — if you need it done, just ask.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>A Friendly Face</h3>
+        <p>Sometimes you just need someone helpful and caring nearby. Think of me as that trusted young person in your life.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Paperwork & Organization</h3>
+        <p>Sorting mail, filling out forms online, setting up bill pay, and getting your files organized.</p>
+      </div>
+    </div>
+  </section>
 
-            <div class="work-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="work-img-container">
-                    <div class="work-img" style="background-image: url('https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800');"></div>
-                </div>
-                <div class="work-content">
-                    <span class="work-tag">Local Service Marketing</span>
-                    <h3>Crimson Landscaping</h3>
-                    <p>Implementing targeted local lead generation to fill a service roster for a new regional business.</p>
-                    <div class="work-stat">0 to 30 Active Clients</div>
-                </div>
-            </div>
+  <!-- PRICING -->
+  <section id="pricing">
+    <h2 class="section-title">Simple, Honest Pricing</h2>
+    <p class="section-sub">No confusing packages. Just a straightforward hourly rate — you only pay for the time you need.</p>
+    <div class="pricing-box">
+      <div class="price-big"><span>$</span>25<span style="font-size:1.2rem">/hr</span></div>
+      <div class="price-label">Flexible hourly rate — no minimum hours required</div>
+      <ul class="price-list">
+        <li>All services covered under one rate</li>
+        <li>No hidden fees or surprise charges</li>
+        <li>Pay only for the time spent</li>
+        <li>In-home or remote help available</li>
+        <li>First 30 minutes free for new clients</li>
+      </ul>
+      <a href="#contact" class="btn">Book Your First Session</a>
+      <p style="margin-top:18px; color:#555; font-size:0.95rem;">📍 Serving the local area — contact me to confirm availability near you.</p>
+    </div>
+  </section>
 
-        </div>
-    </section>
+  <!-- WHY -->
+  <section id="why">
+    <h2 class="section-title">Why Choose Helping Hands?</h2>
+    <p class="section-sub">I built this service because I believe every senior deserves kind, patient, and dependable support.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon">😊</div>
+        <h4>Patient & Kind</h4>
+        <p>I never rush. We go at your pace, and no question is ever too simple.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">🔒</div>
+        <h4>Trustworthy</h4>
+        <p>Your safety and comfort come first. Always respectful in your home.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">📞</div>
+        <h4>Easy to Reach</h4>
+        <p>Call, text, or email — I'll get back to you quickly and clearly.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">💰</div>
+        <h4>Affordable</h4>
+        <p>Fair hourly rates with no contracts, no commitments, and no surprises.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <div class="contact-box" data-aos="flip-up">
-            <div class="section-header">
-                <h2>Start Your Journey</h2>
-                <p>Let's hit that 1,000 follower milestone together.</p>
-            </div>
-            <form action="https://formspree.io/f/mnngavnq" method="POST">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Business Email" required>
-                <textarea name="message" rows="4" placeholder="What is your business goal for the next 30 days?" required></textarea>
-                <button type="submit" class="btn btn-gold">Request Growth Audit</button>
-            </form>
-        </div>
-    </section>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <h2 class="section-title">What People Are Saying</h2>
+    <p class="section-sub">Real feedback from seniors and their families.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p>"I finally learned how to video call my grandkids! So patient and explained everything perfectly."</p>
+        <strong>— Margaret, 74</strong>
+      </div>
+      <div class="testimonial">
+        <p>"My yard has never looked better. Shows up on time, works hard, and is just a pleasure to have around."</p>
+        <strong>— Harold, 81</strong>
+      </div>
+      <div class="testimonial">
+        <p>"My mom was nervous at first but now she looks forward to her weekly sessions. Worth every penny."</p>
+        <strong>— Susan (daughter of client)</strong>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 EVERYTHING OASIS AGENCY. ALL RIGHTS RESERVED.</p>
-    </footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">Ready to get started or have a question? Reach out — I'd love to help.</p>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="contact-row"><span class="ci">📞</span> <span>(555) 123-4567</span></div>
+        <div class="contact-row"><span class="ci">📧</span> <span>hello@helpinghands.com</span></div>
+        <div class="contact-row"><span class="ci">📍</span> <span>Serving [Your City/Area]</span></div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="tel" placeholder="Your Phone Number" />
+        <input type="email" placeholder="Your Email Address" />
+        <textarea placeholder="Tell me how I can help you..."></textarea>
+        <button type="submit" class="btn">Send Message ✉️</button>
+      </form>
+      <div id="form-msg" style="display:none; margin-top:16px; color:green; font-weight:bold; font-size:1.1rem;">
+        ✅ Thank you! I'll be in touch soon.
+      </div>
+    </div>
+  </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true, offset: 100 });</script>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 <span>Helping Hands</span> — Senior Services. Made with ❤️ for our community.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-msg').style.display = 'block';
+      e.target.reset();
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
 </body>
 </html>
